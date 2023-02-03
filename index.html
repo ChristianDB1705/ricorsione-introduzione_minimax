@@ -9,5 +9,41 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+	
+	<script type="text/javascript">
+		function fattorialeIterativo(n){
+  let fattoriale = 1
+  for (let i = 0; i < n; i++){
+    fattoriale = fattoriale * (i + 1)
+  }  
+  return fattoriale
+}
+
+console.log(fattorialeIterativo(5))
+
+function fattorialeRicorsivo(n){
+  if(n === 1){ // Siamo nel caso base? Se sì ritorniamo un numero
+    return 1
+  }  else{ // Non siamo nel caso base, richiamiamo la funzione fattorialeRicorsivo
+    return n * fattorialeRicorsivo(n - 1)
+  }
+}
+
+console.log(fattorialeIterativo(5))
+console.log("----")
+console.log(fattorialeRicorsivo(5))
+
+
+function sommaNIterativo(n){
+  let som
+	</script>
 </body>
 </html>
