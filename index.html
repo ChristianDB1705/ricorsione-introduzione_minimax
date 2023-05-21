@@ -8,42 +8,112 @@
 	</title>
 </head>
 <body>
+	<h1>
+		Ricorsione-Introduzione Minimax
+	</h1>
 
-
-
-
-
-
-
-
-
-	
 	<script type="text/javascript">
-		function fattorialeIterativo(n){
-  let fattoriale = 1
-  for (let i = 0; i < n; i++){
-    fattoriale = fattoriale * (i + 1)
-  }  
-  return fattoriale
-}
 
-console.log(fattorialeIterativo(5))
-
-function fattorialeRicorsivo(n){
-  if(n === 1){ // Siamo nel caso base? Se sì ritorniamo un numero
-    return 1
-  }  else{ // Non siamo nel caso base, richiamiamo la funzione fattorialeRicorsivo
-    return n * fattorialeRicorsivo(n - 1)
+	/*1.Sommare i primi N numeri */
+		// Iterazione classica
+function sommaPrimiNIterativo(N) {
+  let somma = 0;
+  for (let i = 1; i <= N; i++) {
+    somma += i;
   }
+  return somma;
 }
 
-console.log(fattorialeIterativo(5))
-console.log("----")
-console.log(fattorialeRicorsivo(5))
+// Ricorsione
+function sommaPrimiNRicorsivo(N) {
+  if (N === 1) {
+    return 1;
+  }
+  return N + sommaPrimiNRicorsivo(N - 1);
+}
 
 
-function sommaNIterativo(n){
-  let som
+/*2.Trovare l'elemento più piccolo di un array di interi*/
+// Iterazione classica
+function trovaMinimoIterativo(array) {
+  let minimo = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] < minimo) {
+      minimo = array[i];
+    }
+  }
+  return minimo;
+}
+
+// Ricorsione
+function trovaMinimoRicorsivo(array) {
+  if (array.length === 1) {
+    return array[0];
+  }
+  const minimoParziale = trovaMinimoRicorsivo(array.slice(1));
+  return Math.min(array[0], minimoParziale);
+}
+
+
+/*3.Trovare l'elemento più grande di un array di interi*/
+// Iterazione classica
+function trovaMassimoIterativo(array) {
+  let massimo = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > massimo) {
+      massimo = array[i];
+    }
+  }
+  return massimo;
+}
+
+// Ricorsione
+function trovaMassimoRicorsivo(array) {
+  if (array.length === 1) {
+    return array[0];
+  }
+  const massimoParziale = trovaMassimoRicorsivo(array.slice(1));
+  return Math.max(array[0], massimoParziale);
+}
+
+
+/*4.Sommare gli elementi di un array*/
+// Iterazione classica
+function sommaElementiIterativo(array) {
+  let somma = 0;
+  for (let i = 0; i < array.length; i++) {
+    somma += array[i];
+  }
+  return somma;
+}
+
+// Ricorsione
+function sommaElementiRicorsivo(array) {
+  if (array.length === 0) {
+    return 0;
+  }
+  return array[0] + sommaElementiRicorsivo(array.slice(1));
+}
+
+
+/*5.Moltiplicare gli elementi di un array*/
+// Iterazione classica
+function moltiplicaElementiIterativo(array) {
+  let prodotto = 1;
+  for (let i = 0; i < array.length; i++) {
+    prodotto *= array[i];
+  }
+  return prodotto;
+}
+
+// Ricorsione
+function moltiplicaElementiRicorsivo(array) {
+  if (array.length === 0) {
+    return 1;
+  }
+  return array[0] * moltiplicaElementiRicorsivo(array.slice(1));
+}
+
 	</script>
 </body>
 </html>
